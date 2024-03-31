@@ -1,5 +1,6 @@
 import 'package:bookly_app/features/home/view/widgets/books_list_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BooksListView extends StatelessWidget {
   const BooksListView({super.key});
@@ -7,13 +8,13 @@ class BooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
+      height: 224.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: ((context, index) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
-            child: BooksListViewItem(),
+          return Padding(
+            padding: EdgeInsets.only(right: 15.w),
+            child: const BooksListViewItem(),
           );
         }),
       ),

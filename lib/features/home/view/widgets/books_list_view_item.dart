@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/helper/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BooksListViewItem extends StatelessWidget {
   const BooksListViewItem({super.key});
@@ -13,7 +14,7 @@ class BooksListViewItem extends StatelessWidget {
         // width: 100,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
           image: const DecorationImage(
             fit: BoxFit.fill,
             image: AssetImage(AssetsPaths.testImage1),
