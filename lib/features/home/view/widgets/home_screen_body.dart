@@ -10,26 +10,68 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CustomAppBar(),
-          const BooksListView(),
-          SizedBox(
-            height: 50.h,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: const CustomAppBar(),
+              ),
+              const BooksListView(),
+              SizedBox(
+                height: 50.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: Text(
+                  'BestSeller',
+                  style: Styles.font18SemiBold,
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+            ],
           ),
-          Text(
-            'BestSeller',
-            style: Styles.font18SemiBold,
+        ),
+        // I used SliverFillRemain tom make BestSellerList to take expand and take th remaning of screen
+        // so that I don't need to make shrink wrap = true
+        SliverFillRemaining(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.w),
+            child: const BestSellerListView(),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          const BestSellerListView()
-        ],
-      ),
+        )
+      ],
     );
+
+    // todo I can use it but I will should to make Shrink wrap = true in the BestSellerListView and the not good in performance
+
+    //   return Padding(
+    //     padding: EdgeInsets.symmetric(horizontal: 30.w),
+    //     child: SingleChildScrollView(
+    //       child: Column(
+    //         crossAxisAlignment: CrossAxisAlignment.start,
+    //         children: [
+    //           const CustomAppBar(),
+    //           const BooksListView(),
+    //           SizedBox(
+    //             height: 50.h,
+    //           ),
+    //           Text(
+    //             'BestSeller',
+    //             style: Styles.font18SemiBold,
+    //           ),
+    //           const SizedBox(
+    //             height: 10,
+    //           ),
+    //           const BestSellerListView()
+    //         ],
+    //       ),
+    //     ),
+    //   );
   }
 }
