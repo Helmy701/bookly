@@ -1,14 +1,16 @@
 import 'package:bookly_app/core/helper/assets.dart';
+import 'package:bookly_app/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
-class BooksListViewItem extends StatelessWidget {
-  const BooksListViewItem({super.key});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 150 / 224,
+    return GestureDetector(
+      onTap: () => GoRouter.of(context).push(Routes.bookDetailsScreen),
       child: Container(
         // width: MediaQuery.of(context).size.width,
         // width: 100,

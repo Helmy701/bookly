@@ -8,6 +8,12 @@ abstract class Styles {
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font18MediumWithOpacity = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: Colors.white.withOpacity(.7),
+    fontStyle: FontStyle.italic,
+  );
   static TextStyle font20RegularGTSectraFine = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.regular,
