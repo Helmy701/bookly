@@ -20,7 +20,7 @@ class BookDetailsScreenBody extends StatelessWidget {
         children: [
           const CustomBookDetailsAppBar(),
           SizedBox(
-            height: 28.h,
+            height: 20.h,
           ),
           SizedBox(
             height: 240.h,
@@ -28,7 +28,7 @@ class BookDetailsScreenBody extends StatelessWidget {
             child: const CustomBookImage(),
           ),
           SizedBox(
-            height: 40.h,
+            height: 30.h,
           ),
           Text(
             'The Jungle Book',

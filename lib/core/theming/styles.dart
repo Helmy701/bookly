@@ -17,12 +17,12 @@ abstract class Styles {
   static TextStyle font20RegularGTSectraFine = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.regular,
-    // fontFamily: kGTSectraFine,
+    fontFamily: kGTSectraFine,
   );
   static TextStyle font30RegularGTSectraFine = TextStyle(
     fontSize: 30.sp,
     fontWeight: FontWeightHelper.regular,
-    // fontFamily: kGTSectraFine,
+    fontFamily: kGTSectraFine,
   );
   static TextStyle font14Regular = TextStyle(
     fontSize: 14.sp,
