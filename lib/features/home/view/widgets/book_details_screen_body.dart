@@ -25,7 +25,9 @@ class BookDetailsScreenBody extends StatelessWidget {
           SizedBox(
             height: 240.h,
             width: 160.w,
-            child: const CustomBookImage(),
+            child: const CustomBookImage(
+                imageUrl:
+                    'https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg'),
           ),
           SizedBox(
             height: 30.h,
