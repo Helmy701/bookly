@@ -1,15 +1,22 @@
-import 'package:bookly_app/core/theming/font_weight_helper.dart';
-import 'package:bookly_app/core/theming/styles.dart';
-import 'package:bookly_app/features/home/view/widgets/book_action_buttons.dart';
-import 'package:bookly_app/features/home/view/widgets/custom_book_image.dart';
-import 'package:bookly_app/features/home/view/widgets/custom_book_details_app_bar.dart';
-import 'package:bookly_app/features/home/view/widgets/rating.dart';
-import 'package:bookly_app/features/home/view/widgets/similar_books_list_view.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:bookly_app/core/theming/font_weight_helper.dart';
+import 'package:bookly_app/core/theming/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/features/home/view/widgets/book_action_buttons.dart';
+import 'package:bookly_app/features/home/view/widgets/custom_book_details_app_bar.dart';
+import 'package:bookly_app/features/home/view/widgets/custom_book_image.dart';
+import 'package:bookly_app/features/home/view/widgets/rating.dart';
+import 'package:bookly_app/features/home/view/widgets/similar_books_list_view.dart';
+
 class BookDetailsScreenBody extends StatelessWidget {
-  const BookDetailsScreenBody({super.key});
+  const BookDetailsScreenBody({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +32,25 @@ class BookDetailsScreenBody extends StatelessWidget {
           SizedBox(
             height: 240.h,
             width: 160.w,
-            child: const CustomBookImage(
-                imageUrl:
-                    'https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg'),
+            child: CustomBookImage(
+                imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
           ),
           SizedBox(
             height: 30.h,
           ),
           Text(
-            'The Jungle Book',
+            bookModel.volumeInfo.title ?? '',
             style: Styles.font30RegularGTSectraFine,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            textScaler: const TextScaler.linear(1),
           ),
           SizedBox(
             height: 5.h,
           ),
           Text(
-            'Rudyard Kipling',
+            bookModel.volumeInfo.authors?[0] ?? '',
             style: Styles.font18MediumWithOpacity,
           ),
           SizedBox(
@@ -50,7 +60,7 @@ class BookDetailsScreenBody extends StatelessWidget {
           SizedBox(
             height: 35.h,
           ),
-          const BookActionButtons(),
+          BookActionButtons(bookModel: bookModel),
           Expanded(
             child: SizedBox(
               height: 30.h,
